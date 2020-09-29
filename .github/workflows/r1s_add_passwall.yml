@@ -3,11 +3,15 @@ name: r1s+passwall
 on:
 #  schedule:
 #    - cron: 0 20 * * *
-  push:
-    branches: 
-      - master
-    paths:
-      - '.github/workflows/r1s_add_passwall.yml'
+  # release:
+  #   types: [published]
+  watch:
+     types: [started]
+  #push:
+  #  branches: 
+  #    - master
+  #  paths:
+  #    - '.github/workflows/r1s_add_passwall.yml'
 
 jobs:
 

@@ -1,22 +1,23 @@
 name: r2sfriendlywrt+passwall
 
 on:
-  push:
-    branches: 
-      - master
-    paths:
-      - '.github/workflows/r2s_add_passwall.yml'
+  #push:
+  #  branches: 
+  #    - master
+  #  paths:
+  #    - '.github/workflows/r2s_add_passwall.yml'
 #  schedule:
 #    - cron: '10 13 * * *'
-
-jobs:
-
-  build:
+  # release:
+  #   types: [published]
+    watch:
+      types: [started]
     
+jobs:
+  build:
     runs-on: ubuntu-latest
     
     steps:
-      
       - name: Checkout
         uses: actions/checkout@master
         with:

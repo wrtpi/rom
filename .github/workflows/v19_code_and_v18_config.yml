@@ -1,12 +1,16 @@
 name: v19_code_and_v18_config Build
 
 on:
-  push:
-    branches: 
-      - master
-    paths:
-      - '.github/workflows/v19_code_and_v18_config.yml'
-
+  #push:
+  #  branches: 
+  #    - master
+  #  paths:
+  #    - '.github/workflows/v19_code_and_v18_config.yml'
+  # release:
+  #   types: [published]
+    watch:
+      types: [started]
+    
 jobs:
   build:
     runs-on: ubuntu-latest

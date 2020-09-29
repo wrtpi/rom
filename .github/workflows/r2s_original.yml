@@ -1,13 +1,17 @@
 name: r2soriginal Build wrt
 
 on:
-  push:
-    branches: 
-      - master
-    paths: 
-      - 'r2s.config.seed'
-      - '.github/workflows/r2s_original.yml'
-
+  #push:
+  #  branches: 
+  #    - master
+  #  paths: 
+  #    - 'r2s.config.seed'
+  #    - '.github/workflows/r2s_original.yml'
+  # release:
+  #   types: [published]
+  #  watch:
+  #    types: [started]
+    
 jobs:
 
   build:

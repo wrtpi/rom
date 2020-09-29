@@ -39,9 +39,9 @@ index c24224cb3..e7da9b7a6 100644
 +++ b/package/lean/autocore/files/index.htm
 @@ -718,6 +718,7 @@
  		<tr><td width="33%"><%:Firmware Version%></td><td>
- 			<%=pcdata(ver.distname)%> <%=路由神器%> /
- 			<%=pcdata(ver.luciname)%> (<%=2020-09-28%>)
-+			built by Tony 2020
+ 			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
+ 			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
++			built by DYC
  		</td></tr>
  		<tr><td width="33%"><%:Kernel Version%></td><td><%=unameinfo.release or "?"%></td></tr>
  		<tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>

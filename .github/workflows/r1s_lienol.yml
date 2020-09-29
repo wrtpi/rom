@@ -1,14 +1,18 @@
 name: r1sLienolopenwrt
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '.github/workflows/r1s_lienol.yml'
-  schedule:
-    - cron: 0 0 */10 * *
-
+  #push:
+  #  branches:
+  #    - master
+  #  paths:
+  #    - '.github/workflows/r1s_lienol.yml'
+  #schedule:
+  #  - cron: 0 0 */10 * *
+  # release:
+  #   types: [published]
+    watch:
+      types: [started]
+    
 jobs:
 
   build:

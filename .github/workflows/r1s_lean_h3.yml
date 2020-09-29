@@ -1,17 +1,19 @@
 name: r1sH3openwrt
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - '.github/workflows/r1s_lean_h3.yml'
+  #push:
+  #  branches: [ master ]
+  #  paths:
+  #    - '.github/workflows/r1s_lean_h3.yml'
   #schedule:
   #  - cron: '10 10 */4 * *'
-
+  # release:
+  #   types: [published]
+    watch:
+      types: [started]
+    
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     if: github.repository == 'wrtpi/rom'
 

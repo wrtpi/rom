@@ -11,6 +11,9 @@ on:
   #   types: [published]
     watch:
       types: [started]
+      branches: [ master ]
+      paths:
+      - '.github/workflows/r2s_lean_minimal.yml'
     
 jobs:
 
@@ -77,6 +80,23 @@ jobs:
           . x_assemble_artifact.sh
           release_tag="R2S-Minimal-$(date +%Y-%m-%d)"
           echo "##[set-output name=release_tag;]$release_tag"
+          
+      - name: Upload firmware to cowtransfer 上传固件到奶牛快传
+        #if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
+        if: always()
+        run: |
+          curl -fsSL git.io/file-transfer | sh
+          ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
+          echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+      - name: Upload firmware to WeTransfer 上传固件到 WeTransfer
+         #if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
+        if: always()
+        run: |
+           curl -fsSL git.io/file-transfer | sh
+           ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
+           echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        
+          
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

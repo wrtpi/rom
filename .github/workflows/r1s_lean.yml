@@ -1,12 +1,16 @@
 name: r1s+LEDE
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - '.github/workflows/r1s_lean.yml'
-  schedule:
-    - cron: '10 10 */4 * *'
+  #push:
+  #  branches: [ master ]
+  #  paths:
+  #    - '.github/workflows/r1s_lean.yml'
+  #schedule:
+  #  - cron: '10 10 */4 * *'
+    # release:
+  #   types: [published]
+    watch:
+      types: [started]
 
 jobs:
 

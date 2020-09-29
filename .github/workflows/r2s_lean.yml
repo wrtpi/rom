@@ -1,13 +1,17 @@
 name: r2sLEDEopenwrt
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - '.github/workflows/r2s_lean.yml'
-  schedule:
-    - cron: '10 09 * * *'
-
+  #push:
+  #  branches: [ master ]
+  #  paths:
+  #    - '.github/workflows/r2s_lean.yml'
+  #schedule:
+  #  - cron: '10 09 * * *'
+  # release:
+  #   types: [published]
+    watch:
+      types: [started]
+    
 jobs:
 
   build:

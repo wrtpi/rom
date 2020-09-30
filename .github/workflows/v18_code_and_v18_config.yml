@@ -8,8 +8,8 @@ on:
   #    - '.github/workflows/v18_code_and_v18_config.yml'
   # release:
   #   types: [published]
-    watch:
-      types: [started]
+  ##  watch:
+  ##    types: [started]
     
 jobs:
   build:

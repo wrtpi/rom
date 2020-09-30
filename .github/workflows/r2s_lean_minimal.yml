@@ -88,6 +88,9 @@ jobs:
           curl -fsSL git.io/file-transfer | sh
           ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
           echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+          curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
+
+          
       - name: Upload firmware to WeTransfer 上传固件到 WeTransfer
          #if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
         if: always()
@@ -95,7 +98,8 @@ jobs:
            curl -fsSL git.io/file-transfer | sh
            ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
            echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        
+           curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
+
           
       - name: Create Release
         id: create_release
@@ -111,7 +115,9 @@ jobs:
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.sec_token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ##GITHUB_TOKEN: ${{ secrets.sec_token }}
+
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           asset_path: ./artifact.zip

@@ -7,8 +7,8 @@ on:
   #    - '.github/workflows/r1s_lean.yml'
   #schedule:
   #  - cron: '10 10 */4 * *'
-    # release:
-  #   types: [published]
+  release:
+     types: [published]
   ##  watch:
   ##    types: [started]
 

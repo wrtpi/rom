@@ -8,8 +8,8 @@ on:
   #    - '.github/workflows/neo2.yml'
   # release:
   #   types: [published]
-    watch:
-      types: [started]
+  ##  watch:
+  ##    types: [started]
 
 jobs:
   build:

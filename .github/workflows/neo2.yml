@@ -6,8 +6,8 @@ on:
   #    - master
   #  paths:
   #    - '.github/workflows/neo2.yml'
-  # release:
-  #   types: [published]
+   release:
+     types: [published]
   ##  watch:
   ##    types: [started]
 

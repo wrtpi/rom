@@ -73,6 +73,8 @@ jobs:
           curl -fsSL git.io/file-transfer | sh
           ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
           echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+          curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
+          #curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "text=SSH: ${SSH_LINE} \n WEB: ${WEB_LINE}" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
 
       - name: Upload firmware to WeTransfer 上传固件到 WeTransfer
          #if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
@@ -81,6 +83,8 @@ jobs:
            curl -fsSL git.io/file-transfer | sh
            ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
            echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+           curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
+           
         
       - name: Create Release
         id: create_release

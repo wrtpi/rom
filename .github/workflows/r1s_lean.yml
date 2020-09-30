@@ -9,8 +9,8 @@ on:
   #  - cron: '10 10 */4 * *'
     # release:
   #   types: [published]
-    watch:
-      types: [started]
+  ##  watch:
+  ##    types: [started]
 
 jobs:
 

@@ -72,7 +72,8 @@ jobs:
         run: . add_passwall.sh
 
       - name: SSH connection to Actions
-        uses: wrtpi/debugger-action@master 
+        uses: garypang13/debugger-action@master 
+        #uses: wrtpi/debugger-action@master 
 
       - name: Build FriendlyWrt
         run: . 4_build_image.sh friendlywrt-rk3328 nanopi_r2s.mk

@@ -1,10 +1,10 @@
 name: r2sLEDEopenwrt minimal 
 
 on:
-  push:
-    branches: [ master ]
-    paths:
-      - '.github/workflows/r2s_lean_minimal.yml'
+  #push:
+  #  branches: [ master ]
+  #  paths:
+  #    - '.github/workflows/r2s_lean_minimal.yml'
   #schedule:
   #  - cron: '10 08 * * *'
   # release:
@@ -71,6 +71,9 @@ jobs:
       - name: Add Passwall
         run: . add_passwall.sh
 
+      - name: SSH connection to Actions
+        uses: wrtpi/debugger-action@master 
+
       - name: Build FriendlyWrt
         run: . 4_build_image.sh friendlywrt-rk3328 nanopi_r2s.mk
 
@@ -86,7 +89,8 @@ jobs:
         if: always()
         run: |
           curl -fsSL git.io/file-transfer | sh
-          ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
+          ./transfer cow --block 2621440 -s -p 64 --no-progress artifact.zip 2>&1 | tee cowtransfer.log
+          ##./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
           echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
           curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
 
@@ -96,7 +100,8 @@ jobs:
         if: always()
         run: |
            curl -fsSL git.io/file-transfer | sh
-           ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
+           ./transfer wet -s -p 16 --no-progress artifact.zip 2>&1 | tee wetransfer.log
+           ##./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
            echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
            curl -k --data chat_id="${TELEGRAM_CHAT_ID}" --data "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage"
 

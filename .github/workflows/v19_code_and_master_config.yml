@@ -1,13 +1,13 @@
 name: v19_code_and_master_config Build
 
 on:
-  #push:
+  ##push:
   #  branches: 
   #    - master
   #  paths:
   #    - '.github/workflows/v19_code_and_master_config.yml'
-  # release:
-  #   types: [published]
+   release:
+     types: [published]
   ##  watch:
   ##    types: [started]
     

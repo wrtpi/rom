@@ -71,8 +71,8 @@ jobs:
       - name: Add Passwall
         run: . add_passwall.sh
 
-      - name: SSH connection to Actions
-        uses: garypang13/debugger-action@master 
+      #- name: SSH connection to Actions
+      #  uses: garypang13/debugger-action@master 
         #uses: wrtpi/debugger-action@master 
 
       - name: Build FriendlyWrt

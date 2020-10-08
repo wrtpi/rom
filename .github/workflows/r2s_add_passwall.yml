@@ -8,8 +8,8 @@ on:
   #    - '.github/workflows/r2s_add_passwall.yml'
 #  schedule:
 #    - cron: '10 13 * * *'
-  # release:
-  #   types: [published]
+   release:
+     types: [published]
   ##  watch:
   ##    types: [started]
     

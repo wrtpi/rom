@@ -8,8 +8,8 @@ on:
   #    - '.github/workflows/r1s_lienol.yml'
   #schedule:
   #  - cron: 0 0 */10 * *
-  # release:
-  #   types: [published]
+   release:
+     types: [published]
   ##  watch:
   ##    types: [started]
     

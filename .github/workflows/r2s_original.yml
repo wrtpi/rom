@@ -7,8 +7,8 @@ on:
   #  paths: 
   #    - 'r2s.config.seed'
   #    - '.github/workflows/r2s_original.yml'
-  # release:
-  #   types: [published]
+   release:
+     types: [published]
   #  watch:
   #    types: [started]
     

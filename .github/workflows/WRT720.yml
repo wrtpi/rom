@@ -118,9 +118,9 @@ jobs:
        # CONFIG_FILE: 'OpenWRT_WR941N_v4_1.config' 
        # CONFIG_FILE: 'configs/OpenWRT_WR720N_v4_16M.config' 
        ## CONFIG_FILE: 'configs/OpenWRT_WR720N_v4_16MB.config'   
-        DIY_SH: 'configs/diy.sh'
+       # DIY_SH: 'configs/diy.sh'
       run: |
-        [ -e files ] && mv files openwrt/files
+        #[ -e files ] && mv files openwrt/files
         
         #cp -f uboot/breed-for-wr710n_wr720n.bin openwrt/files/etc/uboot.bin
         #cp -f lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/

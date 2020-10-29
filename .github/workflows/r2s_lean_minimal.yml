@@ -7,13 +7,13 @@ on:
   #    - '.github/workflows/r2s_lean_minimal.yml'
   #schedule:
   #  - cron: '10 08 * * *'
-  # release:
-  #   types: [published]
-    watch:
-      types: [started]
-      branches: [ master ]
-      paths:
-      - '.github/workflows/r2s_lean_minimal.yml'
+   release:
+     types: [published]
+  ##  watch:
+  ##    types: [started]
+  ##    branches: [ master ]
+  ##    paths:
+  ##    - '.github/workflows/r2s_lean_minimal.yml'
     
 jobs:
 

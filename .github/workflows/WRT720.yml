@@ -13,7 +13,7 @@
 #name: OpenWrt WR720N SSR troja
 #name: OpenWRT for N1
 #name: OpenWRT for WR941N_v4
-name: OpenWRT for WR720N_v4_16M_mini_10.28
+name: OpenWRT for WR720N_v4_16M_mini_10.30
 
 on: 
   release:
@@ -168,7 +168,7 @@ jobs:
 
 #===================================================================
     - name: Start SSH via tmate
-      uses: VPN-V2Ray/ssh2githubactions@main
+      uses: wrtpi/ssh2githubactions@main
       # Send connection info to Telegram (optional)
       # You can find related documents here: https://core.telegram.org/bots
       env:

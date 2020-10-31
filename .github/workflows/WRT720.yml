@@ -165,15 +165,21 @@ jobs:
     #- name: SSH connection to Actions 用SSH连接到终端控制台
     #  uses: Tony268/debugger-action@master
 #===================================================================
-
-#===================================================================
     - name: Start SSH via tmate
-      uses: wrtpi/ssh2githubactions@main
+      uses: P3TERX/ssh2actions@main
       # Send connection info to Telegram (optional)
       # You can find related documents here: https://core.telegram.org/bots
       env:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+#===================================================================
+    #- name: Start SSH via tmate
+    #  uses: wrtpi/ssh2githubactions@main
+    #  # Send connection info to Telegram (optional)
+    #  # You can find related documents here: https://core.telegram.org/bots
+    #  env:
+    #    TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    #    TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 #===================================================================  
 
     - name: Download package 下载软件包
